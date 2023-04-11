@@ -115,7 +115,8 @@ public class OrderService {
         if(!orderOpt.isPresent()) {
             return false;
         }
-        return Objects.equals(orderOpt.get().getCreatedBy().getId(), user.getId());
+        return Objects.equals(orderOpt.get().getCreatedBy().getId(), user.getId())
+                || Roles.hasRole(user, Roles.ADMIN);
     }
 
     public void deleteOrderById(Long id) {

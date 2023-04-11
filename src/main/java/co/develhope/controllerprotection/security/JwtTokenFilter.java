@@ -34,7 +34,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Autowired
     private UserRepository userRepository;
 
-    private Collection<? extends GrantedAuthority> getAuthorities(User user){
+    private Collection<? extends GrantedAuthority> getAuthorities(User user) {
         if(user == null || !user.getRecordStatus()) {
             return List.of();
         }
